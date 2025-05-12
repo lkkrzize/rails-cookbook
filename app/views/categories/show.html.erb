@@ -1,0 +1,25 @@
+<div class="container mt-3">
+  <h1><%= @category.name %></h1>
+
+  <ul class="list-unstyled">
+    <% @category.bookmarks.each do |bookmark| %>
+      <li class="mb-4 p-3 border rounded">
+        <div class="row">
+          <h4><%= bookmark.recipe.name %></h4>
+          <p><%= bookmark.recipe.description %></p>
+          <p>Rating: <%= bookmark.recipe.rating %></p>
+          <p class="text-muted fst-italic"><%= bookmark.comment %></p>
+          <%= image_tag bookmark.recipe.image_url, class: "w-25 img-fluid rounded" %>
+          <%= link_to "Delete", bookmark,
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <div class="mt-4">
+    <%= link_to 'Add a new recipes ', new_category_bookmark_path(@category), class: "btn btn-primary" %>
+  </div>
+
+</div>

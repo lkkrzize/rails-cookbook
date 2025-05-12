@@ -1,0 +1,26 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.freefoodphotos.com/images/content/homeslider1.jpg);">
+  <div class="container d-flex flex-column align-items-center">
+    <h1>Cookbook</h1>
+    <p>Save your favorite recipes</p>
+  </div>
+</div>
+
+
+<div class="container mt-5">
+  <div class="container d-flex justify-content-between">
+     <h1>Categories</h1>
+     <%= link_to "Add a recipe", new_category_path, class: "btn btn-flat orange" %>
+  </div>
+
+
+
+  <div class="cards a">
+    <% @categories.each do |category| %>
+      <%= link_to category do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= fetch_image_for_category(category.name)%>)">
+            <%= category.name %>
+          </div>
+      <% end %>
+    <% end %>
+  <div>
+</div>
