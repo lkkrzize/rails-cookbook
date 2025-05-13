@@ -1,15 +1,8 @@
+<div class="form-new mt-3 col-12 col-md-10 col-lg-8 ">
+  <h1>Create a new category</h1>
 
-
-<div class="container mt-3 w-50">
-  <div class="container m-5 p-3 shadow bg-body rounded">
-    <div class="row g-3">
-      <h1>Create a new category</h1>
-      <%= simple_form_for @category do |f| %>
-        <%= f.input :name, item_label_class: 'mb-3'%>
-        <%= f.button :submit, class: "mb-3 btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+  <%= simple_form_for @category do |f| %>
+    <%= f.input :name, class: 'mb-3'%>
+    <%= f.button :submit, class: "mb-3 btn-primary" %>
+  <% end %>
 </div>
-
-
