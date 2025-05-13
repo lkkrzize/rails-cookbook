@@ -18,11 +18,20 @@
   border-radius: 4px;
   background: $yellow;
   transition: background 0.3s ease;
+  height: 40px;
+    &.danger {
+      padding:4px 8px;
+      height: 35px;
+      background-color: $red;
+    }
 }
 
 .btn-flat:hover {
   background: $orange;
   color: white;
+      &.danger {
+        background-color: $red-hover;
+  }
 }
 
 .btn-gradient {

@@ -2,7 +2,6 @@ module CategoriesHelper
 
   def fetch_image_for_category(category_name)
 
-
     # require "net/http"
     # require "uri"
     # require "json"
@@ -18,8 +17,6 @@ module CategoriesHelper
     # response = Net::HTTP.get(uri)
     # results = JSON.parse(response)
     # return results["images"][0]["original"]["link"]
-
-    # uncomment above use API key requests
 
     return "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg"
   end
