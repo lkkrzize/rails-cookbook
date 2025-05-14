@@ -7,8 +7,29 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-
 Recipe.destroy_all
+
+def recipe_builder(id)
+  url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=#{id}"
+  url_json = URI.parse(url).read
+  recipe_details = JSON.parse(url_json)
+  recipe_data = recipe_details["meals"][0]
+
+  name = recipe_data["strMeal"]
+  description = recipe_data["strInstructions"]
+  image_url = recipe_data["strMealThumb"]
+  rating = rand(2.0..5.0)
+
+    return recipe = Recipe.create!(
+    name: name,
+    description: description,
+    rating: rating,
+    image_url: image_url
+  )
+end
+
+
+
 
 Recipe.create!(
   name: "Classic Margherita Pizza",
@@ -37,3 +58,16 @@ Recipe.create!(
   rating: 4.2,
   image_url: "https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/sachas_stir-fry_17077_16x9.jpg"
 )
+
+categories = ["Breakfast", "Pasta", "Seafood", "Dessert"]
+
+categories.each do |category|
+  url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=#{category}"
+  recipe_list = URI.parse(url).read
+  recipes = JSON.parse(recipe_list)
+
+  recipes["meals"].take(5).each do |recipe|
+    id = recipe["idMeal"]
+    recipe_builder(id)
+  end
+end

@@ -1,10 +1,12 @@
+    require "net/http"
+    require "uri"
+    require "json"
+
 module CategoriesHelper
 
   def fetch_image_for_category(category_name)
 
-    # require "net/http"
-    # require "uri"
-    # require "json"
+
 
     # uri = URI.parse("https://www.searchapi.io/api/v1/search")
     # params = {
@@ -16,6 +18,7 @@ module CategoriesHelper
 
     # response = Net::HTTP.get(uri)
     # results = JSON.parse(response)
+
     # return results["images"][0]["original"]["link"]
 
     return "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg"
